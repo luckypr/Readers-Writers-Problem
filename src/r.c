@@ -8,7 +8,7 @@
  *	- Open semaphore
  *	- On every 2 seconds count number of letters
  *	- On every 10 seconds display stats
- *	- on Ctrl+C end w1 and w2 program and siplay stats last time
+ *	- on Ctrl+C end w1 and w2 program and diplay stats last time
  */
 
 struct shared_memory_region	*shm;
