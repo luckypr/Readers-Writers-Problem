@@ -1,0 +1,26 @@
+*********************************************************************************************************************************************
+
+	Writer 2 Program
+
+*********************************************************************************************************************************************
+
+- W2 will:
+
+	- Spawn new proces- reader(r.c)
+	- Wait for signal that reader is spawned
+	- Attach to shared memory segment
+	- Open semaphore
+	- Start producing data
+
+-How W2 produce data?
+
+	- On every 1/20 seconds W2 will create one random char(letter)
+	- Generated characters will be again from range A:T
+
+-How W2 spawn Reader process
+	- As W1, with use of fork() and exec(), W2 will in child process create new process image and load reader program
+	- Through arguments it will send pid of W2, pid of W1 and shared memory id
+
+IMPORTANT NOTE:
+	- W2 will pause while reader proces start, so W2 will listen for SIGINT signal-to terminate and SIGCONT from reader to continue
+	

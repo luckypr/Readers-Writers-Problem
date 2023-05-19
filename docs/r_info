@@ -1,0 +1,40 @@
+*******************************************************
+
+	Reader Program
+
+*******************************************************
+
+How Reader works?
+
+	- Reader will listen for Ctrl+C signal(SIGINT) and when received it will kill W1 and W2
+	- Send SIGCONT to W2
+	- Attach to shared memory region
+	- Open semaphore
+	- On every 2 seconds count number of characters in bufer
+	- On every 10 seconds display stats(histogram)
+
+What is histogram?
+
+	- It is history of character occurrences in bufer
+	- It will display for every character how many times it was generated and writen to bufer
+
+Symbols in histogram:
+
+	- Symbol * will show how many hundreds
+	- Symbol + will show how many tens
+	- And symbol - will show how many ones
+
+Example:
+
+	A-012 +--
+	B-132 *+++--
+	.
+	.
+	.
+	T-075 +++++++-----
+	
+Destroying shared memory segment and named semaphore:
+
+	- When reader proram receive signal SIGINT it will destroy shared memory segment and named semaphore
+	- Use ipcs -m for listing all shared memory regions in system
+	- Use ls -al /dev/shm/ to list all named semaphores	

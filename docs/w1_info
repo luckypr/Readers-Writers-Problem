@@ -1,0 +1,21 @@
+******************************************************************************************************************************
+
+	Writer 1 Program
+
+******************************************************************************************************************************
+
+- W1 will :
+	- Create shared memory segment, attach to it and initialize starting values
+	- Create semaphore and initialize it's value
+	- Run writer 2 program ( fork and exec )
+	- Start producing data
+
+- How W1 produce data?
+
+	- Well, on every 2 seconds W1 will produce 20 random characters and write them into shared memory
+	- Generated letters will be in range A:T
+
+- How W1 spawn W2 ?
+
+	- With use of fork() and in child proces with use exec W1 create new proces image for W2 proces
+	- W1 will pass through arguments on execvp() shared memory id to W2(so W2 could attach to same shared memory region)

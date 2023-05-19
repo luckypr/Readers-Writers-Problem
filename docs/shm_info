@@ -1,0 +1,16 @@
+******************************************************************
+
+
+		How Shared Memory Segment works
+
+******************************************************************
+
+
+- It is a C structure that has:
+
+	- roff		-> that is read offset(where to start reading)
+	- woff		-> that is write offset(where to start writing)
+	- buf		-> bufer size of 256 bytes
+
+
+- By using binary semaphore we will prevent multiple process of writing in bufer at same time
